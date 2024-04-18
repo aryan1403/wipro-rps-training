@@ -17,13 +17,13 @@ public class jserver {
             socket = server.accept(); // enable client to join the server
 
             input = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-
+    
             String data = input.readLine(); // data
-
+    
             System.out.println("Data received: " + data);
 
-            socket.close();
-            input.close();
+            // socket.close();
+            // input.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
