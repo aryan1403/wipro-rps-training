@@ -27,6 +27,22 @@
                 alert("Incorrect creds")
             }
         }
+
+        function work() {
+            // range(0-9), times = 10
+            /* for(let i = 0; i < 10; i++) {
+                console.log("hello") // print
+            } */
+            // let arr = ["Aaryan", 56, true, -1, 2];
+
+            // arr.forEach(e => console.log(e));
+            // arr.filter(e => e % 2 == 0).map(e =>  e * 2).forEach(e => console.log(e));
+            // arr.slice(4).forEach(e => console.log(e));
+            // console.log(arr.findIndex(e => e %2 == 0))
+            // arr.reverse().forEach(e => console.log(e));
+
+            document.getElementById("clickbtn").innerText = "clicked"
+        }
     </script>
 </head>
 <body>
@@ -48,5 +64,7 @@
             <button id="mybtn" onclick="login()">Click me</button>
         </a>
     </div>
+
+    <button id="clickbtn" onclick="work()">click</button>
 </body>
 </html>
