@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="demo1.css">
+    <script>
+        function hello() {
+            // text from input box
+            // declare var
+            let a = Number(document.getElementById("a").value);
+            let b = Number(document.getElementById("b").value);
+
+            alert(a + b);
+        }
+
+        function login() {
+            let a = (document.getElementById("email").value);
+            let b = (document.getElementById("pass").value);
+
+            // ==, ===
+            if(a === "aryan@gmail.com" && b === "123") {
+                alert("logged in successfully")
+            } else {
+                alert("Incorrect creds")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1 class="myheading">Hello outdside css</h1>
+    <div class="calc">
+        <img id="catimg" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+        <input id="a" class="myinput" type="number" /> <br/>
+        <input id="b" class="myinput" type="number" /> <br/>
+        <a href="demo.html">
+            <button id="mybtn" onclick="hello()">Click me</button>
+        </a>
+    </div>
+
+    <div class="calc">
+        <img id="catimg" src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+        <input id="email" class="myinput" type="email" /> <br/>
+        <input id="pass" class="myinput" type="password" /> <br/>
+        <a href="demo.html">
+            <button id="mybtn" onclick="login()">Click me</button>
+        </a>
+    </div>
+</body>
+</html>

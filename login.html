@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myinput {
+            width: 250px;
+            height: 20px;
+            margin-top: 10px;
+        }
+        .authbtn {
+            width: 120px;
+            height: 45px;
+            color: rgb(46, 169, 44);
+            margin-top: 50px;
+            float: right;
+        }
+        #logindiv {
+            margin-top: 70px;  
+            align-items: center;
+            align-self: center; 
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <script>
+        function mybtnfunc() {
+            // login
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("pass").value;
+
+            if(email === "aryan" && pass === "123")
+                alert("Logged in successfully")
+            else 
+                alert("incorrect credentials")
+        }
+    </script>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <div id="logindiv">
+        <input id="email" value="" class="myinput" placeholder="username" type="email"/>
+        <br/>
+        <input id="pass" class="myinput" placeholder="password" type="password" />
+        <br/>
+        <a href="index.html">
+            <button class="authbtn" onclick="mybtnfunc()">Login</button>
+        </a>
+    </div>
+</body>
+</html>

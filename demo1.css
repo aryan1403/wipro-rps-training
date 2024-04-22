@@ -1,0 +1,30 @@
+.myheading {
+    color: red;
+}
+
+#mybtn {
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+.myinput {
+    width: 300px;
+    height: 30px;
+    margin-top: 20px;
+}
+
+#catimg {
+    width: 130px;
+    height: 140px;
+    float: right;
+    margin-left: 20px;
+}
+
+.calc {
+    margin-left: 30px;
+    width: max-content;
+}
