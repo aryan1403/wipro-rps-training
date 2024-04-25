@@ -1,6 +1,7 @@
 package com.example.demoapp;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -20,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btn;
@@ -45,8 +47,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if(nt.equals("aryan") && pt.equals("123")) {
                 // logged in successfully
-            } else {
+                Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
 
+                // Navigate to a new Page
+            } else {
+                Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_LONG).show();
             }
         }
     }
