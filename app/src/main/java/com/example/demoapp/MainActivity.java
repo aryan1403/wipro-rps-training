@@ -27,26 +27,18 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btn;
     EditText name, pass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
         btn = findViewById(R.id.btn1);
-        btn.setOnClickListener(this);
-
-        name = findViewById(R.id.namebox);
-        pass = findViewById(R.id.passbox);
-
-    }
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void onClick(View view) {
-        if(view == btn) {
+        btn.setOnClickListener(e -> {
             String nt = name.getText().toString();
             String pt = pass.getText().toString();
 
-            if(nt.equals("aryan") && pt.equals("123")) {
+            if (nt.equals("aryan") && pt.equals("123")) {
                 // logged in successfully
                 Toast.makeText(MainActivity.this, "Logged in Successfully", Toast.LENGTH_LONG).show();
 
@@ -54,6 +46,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 Toast.makeText(MainActivity.this, "Incorrect Credentials", Toast.LENGTH_LONG).show();
             }
-        }
+        });
+        name = findViewById(R.id.namebox);
+        pass = findViewById(R.id.passbox);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        
     }
 }
