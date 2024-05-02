@@ -3,10 +3,9 @@ const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express()
 
-const conn = "mongodb+srv://temp:temp@cluster0.dxduq.mongodb.net/test";
+const conn = "";
 
 app.use(bodyParser.json())
-
 
 mongoose.connect(conn)
         .then(() => console.log('connected'))
