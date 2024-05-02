@@ -1,9 +1,10 @@
-const bodyParser = require('body-parser')
+require('dotenv').config();
+const bodyParser = require('body-parser');
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const app = express()
 
-const conn = "";
+const conn = process.env.CONN;
 
 app.use(bodyParser.json())
 
