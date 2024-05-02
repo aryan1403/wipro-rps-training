@@ -44,9 +44,9 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.home);
         btn = findViewById(R.id.catbtn);
-        iv = findViewById(R.id.catimg);
         tv = findViewById(R.id.facts);
 
+        btn.setOnClickListener(this);
         // btn.setOnClickListener(e -> startActivity(new Intent(homeActivity.this, MainActivity.class)));
     }
 
@@ -128,17 +128,28 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
         queue.add(stringRequest);
     }
 
+    public void getData() {
+        String url = "http://49.43.163.38:8080/";
+        // String url = "https://catfact.ninja/fact";
+        RequestQueue reqQueue = Volley.newRequestQueue(this);
+
+        StringRequest sreq = new StringRequest(Request.Method.GET, url,
+                res -> {
+                    //Toast.makeText(getApplicationContext(), "Response: " + res.toString(), Toast.LENGTH_LONG).show()
+                    tv.setText(res.toString());
+                },
+                err -> Toast.makeText(getApplicationContext(), "Error: " + err, Toast.LENGTH_LONG).show());
+
+        reqQueue.add(sreq);
+    }
+
     @Override
     public void onClick(View view) {
         final String apiurl = "https://cataas.com/cat/says/Aaryan";
         final String apiurl2 = "https://meowfacts.herokuapp.com/";
         if(view.getId() == btn.getId()) {
             try {
-                // httpCall(apiurl2);
-                checkApi(apiurl2);
-                // String response = getFacts();
-                // System.out.println(response);
-                //tv.setText(response);
+                getData();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }

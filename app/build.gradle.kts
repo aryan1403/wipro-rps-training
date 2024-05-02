@@ -42,6 +42,5 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
-    compileOnly("com.mcxiaoke.volley:library:1.0+")
     implementation("com.android.volley:volley:1.2.1")
 }
