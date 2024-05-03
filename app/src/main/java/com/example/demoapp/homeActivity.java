@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -32,111 +33,64 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class homeActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn;
     ImageView iv;
+    TextView email, pass;
 
-    TextView tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.home);
         btn = findViewById(R.id.catbtn);
-        tv = findViewById(R.id.facts);
-
+        email = findViewById(R.id.email);
+        pass = findViewById(R.id.pass);
         btn.setOnClickListener(this);
         // btn.setOnClickListener(e -> startActivity(new Intent(homeActivity.this, MainActivity.class)));
     }
 
-    public void facts() throws  IOException {
-        URL url = new URL("https://meowfacts.herokuapp.com/");
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    public void login() throws JSONException {
+        final String emailBody = email.getText().toString();
+        final String passBody = pass.getText().toString();
 
-        con.setRequestMethod("GET");
-        con.setRequestProperty("Content-Type", "application/json");
+        String url = "https://wipro-rps-training-production.up.railway.app/login";
+        RequestQueue reqQueue = Volley.newRequestQueue(this);
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
-        }
+        StringRequest sreq = new StringRequest(Request.Method.POST, url,
+                res -> Toast.makeText(getApplicationContext(), "Response: " + res, Toast.LENGTH_LONG).show(),
+                err -> Toast.makeText(getApplicationContext(), "Error: " + err, Toast.LENGTH_LONG).show())
+        {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
 
+                params.put("username", emailBody);
+                params.put("pass", passBody);
 
-        System.out.println(content.toString());
-        tv.setText(content.toString());
-
-        Toast.makeText(homeActivity.this, "called the api", Toast.LENGTH_LONG).show();
-
-        con.disconnect();
-        in.close();
-    }
-
-//    public String getFacts() throws IOException {
-//        RequestQueue volleyQueue = Volley.newRequestQueue(homeActivity.this);
-//
-//        String url = "https://meowfacts.herokuapp.com/";
-//        JsonObjectRequest json = new JsonObjectRequest(url,(Response.Listener<JSONObject>) res -> {
-//            try {
-//                JSONArray ja = res.getJSONArray("data");
-//
-//                String fact = ja.getString(0);
-//
-//                tv.setText(fact);
-//
-//            } catch (JSONException e) {
-//                throw new RuntimeException(e);
-//            }
-//        } , (Response.ErrorListener) error -> {
-//            Toast.makeText(homeActivity.this, "Some error occurred! Cannot fetch fact", Toast.LENGTH_LONG).show();
-//            // log the error message in the error stream
-//        } );
-//
-//        volleyQueue.add(json);
-//        return null;
-//    }
-
-    public void checkApi(String uri) throws IOException {
-        URL url = new URL(uri);
-        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-        try {
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
-            StringBuilder s = new StringBuilder();
-            while(in.read() != -1) {
-                s.append((char) in.read());
+                return params;
             }
+        };
 
-            tv.setText(s.toString());
-        } finally {
-            urlConnection.disconnect();
-        }
+        reqQueue.add(sreq);
     }
-    public void httpCall(String url) {
-        RequestQueue queue = Volley.newRequestQueue(this);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                (Response.Listener<String>) res -> {
-                    tv.setText(res);
-                    btn.setText(res);
-                    Toast.makeText(homeActivity.this, "fetched", Toast.LENGTH_LONG).show();
-                }, (Response.ErrorListener) err -> {
-            Toast.makeText(homeActivity.this, "error", Toast.LENGTH_LONG).show();
-        });
 
-        queue.add(stringRequest);
-    }
 
     public void getData() {
-        String url = "http://49.43.163.38:8080/";
+        String url = "https://wipro-rps-training-production.up.railway.app/name/Aaryan";
         // String url = "https://catfact.ninja/fact";
         RequestQueue reqQueue = Volley.newRequestQueue(this);
 
         StringRequest sreq = new StringRequest(Request.Method.GET, url,
                 res -> {
                     //Toast.makeText(getApplicationContext(), "Response: " + res.toString(), Toast.LENGTH_LONG).show()
-                    tv.setText(res.toString());
+                    // tv.setText(res.toString());
                 },
                 err -> Toast.makeText(getApplicationContext(), "Error: " + err, Toast.LENGTH_LONG).show());
 
@@ -149,7 +103,7 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
         final String apiurl2 = "https://meowfacts.herokuapp.com/";
         if(view.getId() == btn.getId()) {
             try {
-                getData();
+                login();
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
