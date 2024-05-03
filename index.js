@@ -5,6 +5,7 @@ const { default: mongoose } = require('mongoose');
 const cors = require('cors')
 const app = express()
 
+const PORT = process.env.PORT || 3000;
 const conn = process.env.CONN;
 
 const allowCrossDomain = (req, res, next) => {
@@ -18,10 +19,13 @@ app.use(cors())
 app.use(allowCrossDomain)
 app.options('*', cors())
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
 
 mongoose.connect(conn)
         .then(() => console.log('connected'))
         .catch(() => console.log('Error'))
+    
+    // create a user --> temp
 
 const demoSchema = new mongoose.Schema({
     name: {
@@ -99,4 +103,4 @@ app.get('/id/:name', async (req, res) => {
 
 
 // http://localhost:8080/
-app.listen(8080, () => console.log("Application started"))
+app.listen(PORT, () => console.log("Application started on PORT " + PORT))
