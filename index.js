@@ -2,10 +2,21 @@ require('dotenv').config();
 const bodyParser = require('body-parser');
 const express = require('express');
 const { default: mongoose } = require('mongoose');
+const cors = require('cors')
 const app = express()
 
 const conn = process.env.CONN;
 
+const allowCrossDomain = (req, res, next) => {
+    res.header(`Access-Control-Allow-Origin`, `*`);
+    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+    res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+    next();
+};
+
+app.use(cors())
+app.use(allowCrossDomain)
+app.options('*', cors())
 app.use(bodyParser.json())
 
 mongoose.connect(conn)
@@ -72,6 +83,10 @@ app.post('/create', async (req, res) => {
     const insertedUser = await user.create({name: name, age: age, salary: salary, email: email})
 
     res.json({msg: "User inserted successfully", data: insertedUser})
+})
+
+app.get('/count', async (req, res) =>{
+    res.json({count: await user.countDocuments()})
 })
 
 app.get('/id/:name', async (req, res) => {
