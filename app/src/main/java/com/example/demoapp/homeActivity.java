@@ -56,12 +56,17 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void login() throws JSONException {
+        // 1. get the data from input text --> username, pass
         final String emailBody = email.getText().toString();
         final String passBody = pass.getText().toString();
 
+        // hosted url --> POST
         String url = "https://wipro-rps-training-production.up.railway.app/login";
+
+        // 2. Request Queue
         RequestQueue reqQueue = Volley.newRequestQueue(this);
 
+        // POST, URL, res -> Toast, err -> Toast {Body<String, String> map}
         StringRequest sreq = new StringRequest(Request.Method.POST, url,
                 res -> Toast.makeText(getApplicationContext(), "Response: " + res, Toast.LENGTH_LONG).show(),
                 err -> Toast.makeText(getApplicationContext(), "Error: " + err, Toast.LENGTH_LONG).show())
@@ -77,6 +82,7 @@ public class homeActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
+        // 3. Request Queue
         reqQueue.add(sreq);
     }
 
