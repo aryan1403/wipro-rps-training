@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 mongoose.connect(conn)
         .then(() => console.log('connected'))
-        .catch(() => console.log('Error'))
+        .catch((err) => console.log(err))
     
     // create a user --> temp
 
@@ -68,12 +68,12 @@ app.post("/login", (req, res) => {
     const username = body.username;
     const pass = body.pass;
 
-    if(username === "aryan" && pass === 123)
-        res.json({
+    if(username === "aryan" && pass === "123")
+        res.status(200).json({
             data: "success",
         })
     else 
-        res.end("Incorrect creds")
+        res.status(404).end("Incorrect creds")
 })
 
 app.post('/create', async (req, res) => {
