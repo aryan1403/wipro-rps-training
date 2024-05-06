@@ -24,7 +24,6 @@ const todoSchema = new mongoose.Schema({
     },
     owner: {
         type: String,
-        required: true,
     },
 });
 
