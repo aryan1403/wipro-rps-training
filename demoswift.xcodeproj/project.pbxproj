@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		384E715D2C12BCB800018EC2 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E715C2C12BCB800018EC2 /* ImageView.swift */; };
 		384E71632C12C20B00018EC2 /* ImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E71622C12C20B00018EC2 /* ImageViewModel.swift */; };
+		384E71652C130FA900018EC2 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E71642C130FA900018EC2 /* HomeView.swift */; };
+		384E71672C130FB700018EC2 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E71662C130FB700018EC2 /* PaymentView.swift */; };
 		387390C02C1167EF00FB0DA5 /* demoswiftApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387390BF2C1167EF00FB0DA5 /* demoswiftApp.swift */; };
 		387390C22C1167EF00FB0DA5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387390C12C1167EF00FB0DA5 /* ContentView.swift */; };
 		387390C42C1167F200FB0DA5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387390C32C1167F200FB0DA5 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		384E715C2C12BCB800018EC2 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		384E71622C12C20B00018EC2 /* ImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewModel.swift; sourceTree = "<group>"; };
+		384E71642C130FA900018EC2 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		384E71662C130FB700018EC2 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		387390BC2C1167EF00FB0DA5 /* demoswift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoswift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		387390BF2C1167EF00FB0DA5 /* demoswiftApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoswiftApp.swift; sourceTree = "<group>"; };
 		387390C12C1167EF00FB0DA5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 				387390C32C1167F200FB0DA5 /* Assets.xcassets */,
 				387390C52C1167F200FB0DA5 /* Preview Content */,
 				384E71622C12C20B00018EC2 /* ImageViewModel.swift */,
+				384E71642C130FA900018EC2 /* HomeView.swift */,
+				384E71662C130FB700018EC2 /* PaymentView.swift */,
 			);
 			path = demoswift;
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				384E715D2C12BCB800018EC2 /* ImageView.swift in Sources */,
+				384E71672C130FB700018EC2 /* PaymentView.swift in Sources */,
 				387390C22C1167EF00FB0DA5 /* ContentView.swift in Sources */,
 				384E71632C12C20B00018EC2 /* ImageViewModel.swift in Sources */,
+				384E71652C130FA900018EC2 /* HomeView.swift in Sources */,
 				387390C02C1167EF00FB0DA5 /* demoswiftApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
