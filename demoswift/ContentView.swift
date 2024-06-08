@@ -19,8 +19,8 @@ struct ContentView: View {
         NavigationView {
            ScrollView(.vertical) {
                VStack {
-                   Text("Sport is a form of physical activity or game. Often competitive and organized, sports use, maintain, or improve physical ability and skills. They also provide enjoyment to participants and, in some cases, entertainment to spectators").lineLimit(6, reservesSpace: true).frame(width: 350).truncationMode(.tail)
-                   
+                   Text("Sport is a form of physical activity or game. Often competitive and organized, sports use, maintain, or improve physical ability and skills. They also provide enjoyment to participants and, in some cases, entertainment to spectators").lineLimit(6).padding(.bottom, 20)
+                   Text("padded text")
                    NavigationLink("Archery", destination: archeryPage)
                    NavigationLink("Bowling", destination: BowlingPage)
                    .alert("Sports", isPresented: $showAlert) {
